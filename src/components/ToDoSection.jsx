@@ -5,7 +5,7 @@ const ToDoSection = ({
   todos,
   setTodos,
   viewMode,
-  toggleViewMode, // ✅ ADDED
+  toggleViewMode,
   themeStyles,
 }) => {
   return (
@@ -21,7 +21,7 @@ const ToDoSection = ({
         </button>
 
         <button
-          onClick={toggleViewMode} // ✅ FIXED
+          onClick={toggleViewMode}
           className={`border border-black ${themeStyles.button} p-5 py-2 rounded-md`}
         >
           {viewMode === "grid" ? "List View" : "Grid View"}
