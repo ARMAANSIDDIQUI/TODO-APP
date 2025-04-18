@@ -1,7 +1,6 @@
 const ToDoCard = ({ todo, setTodos, themeStyles }) => {
   const { id, title, description, isCompleted } = todo;
 
-  // Toggle completion status
   function toggleTick() {
     setTodos((prev) => {
       const newTodos = prev.map((item) => {
@@ -14,7 +13,6 @@ const ToDoCard = ({ todo, setTodos, themeStyles }) => {
     });
   }
 
-  // Delete the task
   function deleteTodo() {
     if (window.confirm("Are you sure you want to delete this task?")) {
       setTodos((prev) => prev.filter((item) => item.id !== id));
