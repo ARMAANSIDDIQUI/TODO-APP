@@ -5,6 +5,7 @@ const ToDoSection = ({
   todos,
   setTodos,
   viewMode,
+  toggleViewMode, // ✅ ADDED
   themeStyles,
 }) => {
   return (
@@ -20,9 +21,7 @@ const ToDoSection = ({
         </button>
 
         <button
-          onClick={() =>
-            setViewMode((prev) => (prev === "grid" ? "list" : "grid"))
-          }
+          onClick={toggleViewMode} // ✅ FIXED
           className={`border border-black ${themeStyles.button} p-5 py-2 rounded-md`}
         >
           {viewMode === "grid" ? "List View" : "Grid View"}
@@ -31,7 +30,9 @@ const ToDoSection = ({
 
       <div
         className={`${
-          viewMode === "list" ? "flex flex-col" : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"
+          viewMode === "list"
+            ? "flex flex-col"
+            : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"
         }`}
       >
         {todos.map((todo) => {
