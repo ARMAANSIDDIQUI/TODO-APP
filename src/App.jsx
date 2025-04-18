@@ -31,7 +31,6 @@ const themes = {
   }
 };
 
-
 function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [todos, setTodos] = useState([]);
@@ -63,7 +62,7 @@ function App() {
   const themeStyles = themes[theme];
 
   return (
-    <div className={`${themeStyles.bg} ${themeStyles.text} min-h-screen transition-all`}>
+    <div className={`${themeStyles.bg} ${themeStyles.text} min-h-screen transition-all transition-colors`}>
       <NavBar theme={theme} handleThemeChange={handleThemeChange} />
       <CarouselSection />
       <ToDoSection
@@ -76,7 +75,13 @@ function App() {
         }
         themeStyles={themeStyles}
       />
-      {isOpen && <AddTaskModal closeModal={() => setIsOpen(false)} setTodos={setTodos} />}
+      {isOpen ? (
+        <AddTaskModal
+          closeModal={() => setIsOpen(false)}
+          setTodos={setTodos}
+          themeStyles={themeStyles}
+        />
+      ) : null}
     </div>
   );
 }
